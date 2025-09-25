@@ -7,9 +7,7 @@ export async function signUp(formData: SignUpFormData) {
         password: formData.password,
     });
 
-    if (signUpError) throw new Error(signUpError.message);
-    if (!data.user)
-        throw new Error("Failed to sign up user. Please try again later.");
+    if (signUpError || !data.user) throw new Error();
 
     // create profile
     const { error: profileError } = await supabase.from("profiles").insert({
