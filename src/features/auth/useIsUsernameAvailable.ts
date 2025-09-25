@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { isUsernameAvailable as apiIsUsernameAvailable } from "../../services/apiAuth";
 
-export function useUser(username: string) {
+export function useIsUsernameAvailable(username: string) {
     const {
         data: isUsernameAvailable,
         isLoading,
