@@ -1,4 +1,5 @@
 import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
+import { useSignUp } from "./useSignUp";
 
 const EMAIL_VALIDATION_REGEX = new RegExp(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/);
 
@@ -10,8 +11,10 @@ const SignupForm = () => {
         watch,
     } = useForm();
 
+    const { signUp, isPending } = useSignUp();
+
     const onSubmit: SubmitHandler<FieldValues> = (formData) => {
-        console.log(formData);
+        signUp(formData as SignUpFormData);
     };
 
     return (
@@ -94,7 +97,11 @@ const SignupForm = () => {
                 )}
             </div>
 
-            <button type="submit">Sign Up</button>
+            <button type="submit" disabled={isPending}>
+                Sign Up
+            </button>
+
+            <p>{isPending ? "Loading..." : ""}</p>
         </form>
     );
 };
