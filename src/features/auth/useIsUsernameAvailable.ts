@@ -12,5 +12,7 @@ export function useIsUsernameAvailable(username: string) {
         queryKey: ["isUsernameAvailable", username],
     });
 
-    return { isUsernameAvailable, isLoading, error };
+    if (error) console.error(error);
+
+    return { isUsernameAvailable, isLoading };
 }
