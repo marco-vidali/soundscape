@@ -11,14 +11,14 @@ export async function signUp(formData: SignUpFormData) {
         throw new Error("An error occurred during sign up...");
 
     // create profile
-    const { error: profileError } = await supabase.from("profiles").insert({
-        id: newUser.user.id,
-        display_name: formData.displayName,
-        username: formData.username,
-    });
+    // const { error: profileError } = await supabase.from("profiles").insert({
+    //     id: newUser.user.id,
+    //     display_name: formData.displayName,
+    //     username: formData.username,
+    // });
 
-    if (profileError)
-        throw new Error("An error occurred during profile creation...");
+    // if (profileError)
+    //     throw new Error("An error occurred during profile creation...");
 }
 
 export async function isUsernameAvailable(username: string) {

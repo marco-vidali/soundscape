@@ -28,7 +28,7 @@ const SignupForm = () => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <div>
+            {/* <div>
                 <label>Display Name:</label>
                 <input
                     {...register("displayName", {
@@ -39,9 +39,9 @@ const SignupForm = () => {
                 {errors.displayName && (
                     <p>{errors.displayName.message as string}</p>
                 )}
-            </div>
+            </div> */}
 
-            <div>
+            {/* <div>
                 <label>Username:</label>
                 <input
                     {...register("username", {
@@ -55,7 +55,7 @@ const SignupForm = () => {
                 />
 
                 {errors.username && <p>{errors.username.message as string}</p>}
-            </div>
+            </div> */}
 
             <div>
                 <label>Email:</label>
