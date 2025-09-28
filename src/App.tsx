@@ -3,6 +3,7 @@ import { lazy } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const Signup = lazy(() => import("./pages/Signup"));
+const Verification = lazy(() => import("./pages/Verification"));
 
 const queryClient = new QueryClient();
 
@@ -11,7 +12,10 @@ function App() {
         <QueryClientProvider client={queryClient}>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/signup" element={<Signup />} />
+                    <Route path="auth">
+                        <Route path="signup" element={<Signup />} />
+                        <Route path="verification" element={<Verification />} />
+                    </Route>
                 </Routes>
             </BrowserRouter>
         </QueryClientProvider>
