@@ -23,7 +23,7 @@ const SignupForm = () => {
             return;
         }
 
-        signUp(formData as SignUpFormData);
+        signUp(formData as SignupFormData);
     };
 
     return (

@@ -1,8 +1,6 @@
 /// <reference types="vite/client" />
 
-type SignUpFormData = {
-    displayName: string;
-    username: string;
+type SignupFormData = {
     email: string;
     password: string;
     confirmPassword: string;
