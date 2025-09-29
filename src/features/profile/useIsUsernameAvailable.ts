@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { isUsernameAvailable as apiIsUsernameAvailable } from "../../services/apiAuth";
+import { isUsernameAvailable as apiIsUsernameAvailable } from "../../services/apiProfile";
 
 export function useIsUsernameAvailable(username: string) {
     const {

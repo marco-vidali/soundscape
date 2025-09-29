@@ -22,3 +22,18 @@ export async function createProfile(formData: ProfileCreationFormData) {
         throw new Error("An error occurred during profile creation...");
     }
 }
+
+export async function isUsernameAvailable(username: string) {
+    const { data, error } = await supabase
+        .from("profiles")
+        .select("id")
+        .eq("username", username)
+        .limit(1);
+
+    if (error)
+        throw new Error(
+            "An error occurred while checking username availability..."
+        );
+
+    return !(data && data.length > 0);
+}

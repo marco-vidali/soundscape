@@ -1,6 +1,6 @@
 import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
 import { useSignUp } from "./useSignUp";
-import { useIsUsernameAvailable } from "./useIsUsernameAvailable";
+import { useIsUsernameAvailable } from "../profile/useIsUsernameAvailable";
 
 const EMAIL_VALIDATION_REGEX = new RegExp(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/);
 
