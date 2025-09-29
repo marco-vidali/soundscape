@@ -10,8 +10,6 @@ export async function createProfile(formData: ProfileCreationFormData) {
         throw new Error("No authenticated user was found...");
     }
 
-    console.log("Creating profile for user ID:", user.id);
-
     const { error: profileError } = await supabase.from("profiles").insert({
         id: user.id,
         display_name: formData.displayName,
