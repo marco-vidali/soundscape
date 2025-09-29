@@ -1,4 +1,5 @@
 import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
+import { useCreateProfile } from "./useCreateProfile";
 
 const ProfileCreationForm = () => {
     const {
@@ -7,8 +8,10 @@ const ProfileCreationForm = () => {
         formState: { errors },
     } = useForm();
 
+    const { createProfile, isPending } = useCreateProfile();
+
     const onSubmit: SubmitHandler<FieldValues> = (formData) => {
-        console.log(formData);
+        createProfile(formData as ProfileCreationFormData);
     };
 
     return (
@@ -42,7 +45,11 @@ const ProfileCreationForm = () => {
                 {errors.username && <p>{errors.username.message as string}</p>}
             </div>
 
-            <button type="submit">Create</button>
+            <button type="submit" disabled={isPending}>
+                Create
+            </button>
+
+            <p>{isPending ? "Loading..." : ""}</p>
         </form>
     );
 };
