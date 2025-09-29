@@ -1,6 +1,6 @@
 import supabase from "./supabase";
 
-export async function createProfile(formData: SignUpFormData) {
+export async function createProfile(formData: ProfileCreationFormData) {
     const {
         data: { user },
         error: userError,
