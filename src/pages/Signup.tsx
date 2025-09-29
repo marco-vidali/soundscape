@@ -1,3 +1,4 @@
+import LoginLink from "../features/auth/LoginLink";
 import SignupForm from "../features/auth/SignupForm";
 import SignupTitle from "../features/auth/SignupTitle";
 
@@ -6,6 +7,7 @@ const Signup = () => {
         <>
             <SignupTitle />
             <SignupForm />
+            <LoginLink />
         </>
     );
 };
