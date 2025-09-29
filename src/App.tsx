@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const Signup = lazy(() => import("./pages/Signup"));
 const Verification = lazy(() => import("./pages/Verification"));
+const ProfileCreation = lazy(() => import("./pages/ProfileCreation"));
 
 const queryClient = new QueryClient();
 
@@ -15,6 +16,10 @@ function App() {
                     <Route path="auth">
                         <Route path="signup" element={<Signup />} />
                         <Route path="verification" element={<Verification />} />
+                    </Route>
+
+                    <Route path="profile">
+                        <Route path="create" element={<ProfileCreation />} />
                     </Route>
                 </Routes>
             </BrowserRouter>
