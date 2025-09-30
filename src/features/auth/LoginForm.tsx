@@ -1,4 +1,5 @@
 import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
+import { useLogIn } from "./useLogIn";
 
 const EMAIL_VALIDATION_REGEX = new RegExp(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/);
 
@@ -9,8 +10,10 @@ const LoginForm = () => {
         formState: { errors },
     } = useForm();
 
+    const { logIn, isPending } = useLogIn();
+
     const onSubmit: SubmitHandler<FieldValues> = (formData) => {
-        console.log(formData);
+        logIn(formData as LoginFormData);
     };
 
     return (
@@ -43,7 +46,11 @@ const LoginForm = () => {
                 {errors.password && <p>{errors.password.message as string}</p>}
             </div>
 
-            <button type="submit">Log In</button>
+            <button type="submit" disabled={isPending}>
+                Log In
+            </button>
+
+            {isPending && <p>Loading...</p>}
         </form>
     );
 };
