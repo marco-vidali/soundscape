@@ -1,12 +1,12 @@
 import supabase from "./supabase";
 
 export async function signUp(formData: SignupFormData) {
-    const { data: newUser, error } = await supabase.auth.signUp({
+    const { data, error } = await supabase.auth.signUp({
         email: formData.email,
         password: formData.password,
     });
 
-    if (error || !newUser.user)
+    if (error || !data.user)
         throw new Error("An error occurred during signup...");
 }
 
