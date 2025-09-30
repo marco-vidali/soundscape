@@ -32,3 +32,13 @@ export async function isLoggedIn() {
 
     return !!session;
 }
+
+export async function getUser() {
+    const { data, error } = await supabase.auth.getUser();
+
+    if (error) {
+        console.error("An error has occurred while getting user...");
+        return null;
+    }
+    return data;
+}
