@@ -30,7 +30,7 @@ export async function isLoggedIn() {
     return !!data;
 }
 
-export async function getUser() {
+export async function getCurrentUser() {
     const { data, error } = await supabase.auth.getUser();
 
     if (error) {
