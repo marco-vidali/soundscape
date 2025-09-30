@@ -18,3 +18,17 @@ export async function logIn(formData: LoginFormData) {
 
     if (error) throw new Error("An error occurred during login...");
 }
+
+export async function isLoggedIn() {
+    const {
+        data: { session },
+        error,
+    } = await supabase.auth.getSession();
+
+    if (error) {
+        console.error("An error has occurred while checking session...");
+        return false;
+    }
+
+    return !!session;
+}
