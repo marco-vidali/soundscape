@@ -10,3 +10,8 @@ type ProfileCreationFormData = {
     displayName: string;
     username: string;
 };
+
+type LoginFormData = {
+    email: string;
+    password: string;
+};

@@ -9,3 +9,12 @@ export async function signUp(formData: SignupFormData) {
     if (signUpError || !newUser.user)
         throw new Error("An error occurred during sign up...");
 }
+
+export async function logIn(formData: LoginFormData) {
+    const { error } = await supabase.auth.signInWithPassword({
+        email: formData.email,
+        password: formData.password,
+    });
+
+    if (error) throw new Error("An error occurred during login...");
+}
