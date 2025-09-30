@@ -36,7 +36,7 @@ export async function isUsernameAvailable(username: string) {
     return !(data && data.length > 0);
 }
 
-export async function hasProfile(userId: string) {
+export async function getProfile(userId: string) {
     const { data, error } = await supabase
         .from("profiles")
         .select("id")
@@ -44,7 +44,7 @@ export async function hasProfile(userId: string) {
         .limit(1);
 
     if (error)
-        throw new Error("An error occurred while checking for user profile...");
+        throw new Error("An error occurred while getting user profile...");
 
     return data && data.length > 0;
 }
