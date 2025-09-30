@@ -7,7 +7,7 @@ export async function signUp(formData: SignupFormData) {
     });
 
     if (signUpError || !newUser.user)
-        throw new Error("An error occurred during sign up...");
+        throw new Error("An error occurred during signup...");
 }
 
 export async function logIn(formData: LoginFormData) {
