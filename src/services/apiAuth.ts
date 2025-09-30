@@ -37,5 +37,6 @@ export async function getUser() {
         console.error("An error has occurred while getting user...");
         return null;
     }
+
     return data;
 }
