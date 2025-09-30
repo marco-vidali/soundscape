@@ -20,17 +20,14 @@ export async function logIn(formData: LoginFormData) {
 }
 
 export async function isLoggedIn() {
-    const {
-        data: { session },
-        error,
-    } = await supabase.auth.getSession();
+    const { data, error } = await supabase.auth.getSession();
 
     if (error) {
         console.error("An error has occurred while checking session...");
         return false;
     }
 
-    return !!session;
+    return !!data;
 }
 
 export async function getUser() {
