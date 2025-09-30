@@ -35,3 +35,16 @@ export async function isUsernameAvailable(username: string) {
 
     return !(data && data.length > 0);
 }
+
+export async function hasProfile(userId: string) {
+    const { data, error } = await supabase
+        .from("profiles")
+        .select("id")
+        .eq("id", userId)
+        .limit(1);
+
+    if (error)
+        throw new Error("An error occurred while checking for user profile...");
+
+    return data && data.length > 0;
+}
