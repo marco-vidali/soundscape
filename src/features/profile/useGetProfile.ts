@@ -9,6 +9,7 @@ export function useGetProfile(userId: string) {
     } = useQuery({
         queryKey: ["profile", userId],
         queryFn: ({ queryKey }) => apiGetProfile(queryKey[1] as string),
+        enabled: !!userId,
     });
 
     if (error) console.error(error);

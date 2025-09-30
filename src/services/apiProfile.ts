@@ -46,5 +46,5 @@ export async function getProfile(userId: string) {
     if (error)
         throw new Error("An error occurred while getting user profile...");
 
-    return data && data.length > 0;
+    return data[0];
 }
