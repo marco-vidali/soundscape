@@ -4,6 +4,7 @@ import { useIsUsernameAvailable } from "../profile/useIsUsernameAvailable";
 import { Input } from "@/components/retroui/Input";
 import { Label } from "@radix-ui/react-label";
 import { Button } from "@/components/retroui/Button";
+import { Loader } from "@/components/retroui/Loader";
 
 const EMAIL_VALIDATION_REGEX = new RegExp(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/);
 
@@ -100,12 +101,10 @@ const SignupForm = () => {
             <Button
                 type="submit"
                 disabled={isPending}
-                className="flex flex-col"
+                className="flex flex-col h-10 justify-center"
             >
-                Sign Up
+                {isPending ? <Loader /> : "Sign Up"}
             </Button>
-
-            <p>{isPending ? "Loading..." : ""}</p>
         </form>
     );
 };
