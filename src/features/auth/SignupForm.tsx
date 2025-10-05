@@ -31,11 +31,12 @@ const SignupForm = () => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
-            <div>
+            <div className="flex flex-col gap-1.5">
                 <Label>Email:</Label>
                 <Input
                     type="email"
                     placeholder="fantastic@email.com"
+                    aria-invalid={!!errors.email}
                     {...register("email", {
                         required: "Email is required",
                         pattern: {
@@ -45,14 +46,19 @@ const SignupForm = () => {
                     })}
                 />
 
-                {errors.email && <p>{errors.email.message as string}</p>}
+                {errors.email && (
+                    <p className="text-sm text-destructive">
+                        {errors.email.message as string}
+                    </p>
+                )}
             </div>
 
-            <div>
+            <div className="flex flex-col gap-1.5">
                 <label>Password:</label>
                 <Input
                     type="password"
                     placeholder="••••••••"
+                    aria-invalid={!!errors.password}
                     {...register("password", {
                         required: "Password is required",
                         minLength: {
@@ -63,15 +69,21 @@ const SignupForm = () => {
                     })}
                 />
 
-                {errors.password && <p>{errors.password.message as string}</p>}
+                {errors.password && (
+                    <p className="text-sm text-destructive">
+                        {errors.password.message as string}
+                    </p>
+                )}
             </div>
 
-            <div>
+            <div className="flex flex-col gap-1.5">
                 <label>Confirm Password:</label>
                 <Input
                     type="password"
                     placeholder="••••••••"
+                    aria-invalid={!!errors.confirmPassword}
                     {...register("confirmPassword", {
+                        required: "Password confirmation is required",
                         validate: (value) =>
                             value === watch("password") ||
                             "Passwords do not match",
@@ -79,7 +91,9 @@ const SignupForm = () => {
                 />
 
                 {errors.confirmPassword && (
-                    <p>{errors.confirmPassword.message as string}</p>
+                    <p className="text-sm text-destructive">
+                        {errors.confirmPassword.message as string}
+                    </p>
                 )}
             </div>
 
