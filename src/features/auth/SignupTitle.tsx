@@ -1,5 +1,7 @@
+import { Text } from "@/components/retroui/Text";
+
 const SignupTitle = () => {
-    return <h1>Sign Up for Soundscape</h1>;
+    return <Text as="h1">Sign Up for Soundscape</Text>;
 };
 
 export default SignupTitle;

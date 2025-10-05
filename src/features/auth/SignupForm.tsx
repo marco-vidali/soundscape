@@ -1,6 +1,9 @@
 import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
 import { useSignUp } from "./useSignUp";
 import { useIsUsernameAvailable } from "../profile/useIsUsernameAvailable";
+import { Input } from "@/components/retroui/Input";
+import { Label } from "@radix-ui/react-label";
+import { Button } from "@/components/retroui/Button";
 
 const EMAIL_VALIDATION_REGEX = new RegExp(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/);
 
@@ -27,11 +30,12 @@ const SignupForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
             <div>
-                <label>Email:</label>
-                <input
+                <Label>Email:</Label>
+                <Input
                     type="email"
+                    placeholder="fantastic@email.com"
                     {...register("email", {
                         required: "Email is required",
                         pattern: {
@@ -46,8 +50,9 @@ const SignupForm = () => {
 
             <div>
                 <label>Password:</label>
-                <input
+                <Input
                     type="password"
+                    placeholder="••••••••"
                     {...register("password", {
                         required: "Password is required",
                         minLength: {
@@ -63,8 +68,9 @@ const SignupForm = () => {
 
             <div>
                 <label>Confirm Password:</label>
-                <input
+                <Input
                     type="password"
+                    placeholder="••••••••"
                     {...register("confirmPassword", {
                         validate: (value) =>
                             value === watch("password") ||
@@ -77,9 +83,13 @@ const SignupForm = () => {
                 )}
             </div>
 
-            <button type="submit" disabled={isPending}>
+            <Button
+                type="submit"
+                disabled={isPending}
+                className="flex flex-col"
+            >
                 Sign Up
-            </button>
+            </Button>
 
             <p>{isPending ? "Loading..." : ""}</p>
         </form>

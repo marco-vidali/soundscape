@@ -4,7 +4,12 @@ const LoginLink = () => {
     return (
         <p>
             Already have an account?{" "}
-            <Link to={{ pathname: "/auth/login" }}>Log in</Link>!
+            <Link
+                to={{ pathname: "/auth/login" }}
+                className="font-head hover:underline"
+            >
+                Log in!
+            </Link>
         </p>
     );
 };
