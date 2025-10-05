@@ -3,6 +3,7 @@ import { lazy } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ProtectedRoute from "./features/auth/ProtectedRoute";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { Toaster } from "./components/retroui/Sonner";
 
 const Signup = lazy(() => import("./pages/Signup"));
 const Verification = lazy(() => import("./pages/Verification"));
@@ -13,8 +14,10 @@ const queryClient = new QueryClient();
 
 function App() {
     return (
-        <QueryClientProvider client={queryClient}>
-            <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+        <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+            <Toaster position="top-center" />
+
+            <QueryClientProvider client={queryClient}>
                 <BrowserRouter>
                     <Routes>
                         <Route path="auth">
@@ -42,8 +45,8 @@ function App() {
                         </Route>
                     </Routes>
                 </BrowserRouter>
-            </ThemeProvider>
-        </QueryClientProvider>
+            </QueryClientProvider>
+        </ThemeProvider>
     );
 }
 
