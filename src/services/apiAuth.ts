@@ -1,4 +1,4 @@
-import supabase from "./supabase";
+import supabase from "../lib/supabase";
 
 export async function signUp(formData: SignupFormData) {
     const { data, error } = await supabase.auth.signUp({
