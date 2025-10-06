@@ -8,9 +8,8 @@ const SignupLink = () => {
                 to={{ pathname: "/auth/signup" }}
                 className="font-head hover:underline"
             >
-                Sign up
+                Sign up!
             </Link>
-            !
         </p>
     );
 };
