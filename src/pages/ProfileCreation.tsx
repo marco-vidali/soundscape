@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useGetCurrentUser } from "../features/auth/useGetCurrentUser";
 import { useGetProfile } from "../features/profile/useGetProfile";
 import ProfileCreationCard from "@/features/profile/ProfileCreationCard";
+import { Loader } from "@/components/retroui/Loader";
 
 const ProfileCreation = () => {
     const navigate = useNavigate();
@@ -18,11 +19,15 @@ const ProfileCreation = () => {
         }
     }, [profile, isUserLoading, isProfileLoading, navigate]);
 
-    if (isUserLoading || isProfileLoading) return <div>Loading...</div>;
+    if (isUserLoading || isProfileLoading)
+        return (
+            <div className="h-dvh flex justify-center items-center">
+                <Loader />
+            </div>
+        );
 
     return (
         <div className="flex justify-center items-center h-dvh">
-            {" "}
             <ProfileCreationCard />
         </div>
     );
