@@ -1,5 +1,7 @@
+import { Text } from "@/components/retroui/Text";
+
 const ProfileCreationTitle = () => {
-    return <h1>Create Your Profile</h1>;
+    return <Text as="h1">Create Your Profile</Text>;
 };
 
 export default ProfileCreationTitle;

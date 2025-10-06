@@ -1,9 +1,8 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import ProfileCreationTitle from "../features/profile/ProfileCreationTitle";
-import ProfileCreationForm from "../features/profile/ProfileCreationForm";
 import { useGetCurrentUser } from "../features/auth/useGetCurrentUser";
 import { useGetProfile } from "../features/profile/useGetProfile";
+import ProfileCreationCard from "@/features/profile/ProfileCreationCard";
 
 const ProfileCreation = () => {
     const navigate = useNavigate();
@@ -22,10 +21,10 @@ const ProfileCreation = () => {
     if (isUserLoading || isProfileLoading) return <div>Loading...</div>;
 
     return (
-        <>
-            <ProfileCreationTitle />
-            <ProfileCreationForm />
-        </>
+        <div className="flex justify-center items-center h-dvh">
+            {" "}
+            <ProfileCreationCard />
+        </div>
     );
 };
 

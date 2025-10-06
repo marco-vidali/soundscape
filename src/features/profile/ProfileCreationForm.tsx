@@ -1,6 +1,11 @@
 import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
 import { useCreateProfile } from "./useCreateProfile";
 import { useIsUsernameAvailable } from "./useIsUsernameAvailable";
+import { Label } from "@/components/retroui/Label";
+import { Input } from "@/components/retroui/Input";
+import { Button } from "@/components/retroui/Button";
+import { Loader } from "@/components/retroui/Loader";
+import { toast } from "sonner";
 
 const ProfileCreationForm = () => {
     const {
@@ -17,7 +22,7 @@ const ProfileCreationForm = () => {
 
     const onSubmit: SubmitHandler<FieldValues> = (formData) => {
         if (!isUsernameAvailable) {
-            console.error("This username is already in use...");
+            toast.error("This username is already in use...");
             return;
         }
 
@@ -25,23 +30,29 @@ const ProfileCreationForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <div>
-                <label>Display Name:</label>
-                <input
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+            <div className="flex flex-col gap-1.5">
+                <Label>Display Name:</Label>
+                <Input
+                    placeholder="Jonny Greenwood"
+                    aria-invalid={!!errors.displayName}
                     {...register("displayName", {
                         required: "Display Name is required",
                     })}
                 />
 
                 {errors.displayName && (
-                    <p>{errors.displayName.message as string}</p>
+                    <p className="text-sm text-destructive">
+                        {errors.displayName.message as string}
+                    </p>
                 )}
             </div>
 
-            <div>
-                <label>Username:</label>
-                <input
+            <div className="flex flex-col gap-1.5">
+                <Label>Username:</Label>
+                <Input
+                    placeholder="jonnygreenwood"
+                    aria-invalid={!!errors.username}
                     {...register("username", {
                         required: "Username is required",
                         minLength: {
@@ -52,14 +63,20 @@ const ProfileCreationForm = () => {
                     })}
                 />
 
-                {errors.username && <p>{errors.username.message as string}</p>}
+                {errors.username && (
+                    <p className="text-sm text-destructive">
+                        {errors.username.message as string}
+                    </p>
+                )}
             </div>
 
-            <button type="submit" disabled={isPending}>
-                Create
-            </button>
-
-            <p>{isPending ? "Loading..." : ""}</p>
+            <Button
+                type="submit"
+                disabled={isPending}
+                className="flex flex-col h-10 justify-center"
+            >
+                {isPending ? <Loader /> : "Create"}
+            </Button>
         </form>
     );
 };
