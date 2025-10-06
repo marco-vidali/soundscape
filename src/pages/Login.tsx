@@ -1,14 +1,10 @@
-import LoginForm from "../features/auth/LoginForm";
-import LoginTitle from "../features/auth/LoginTitle";
-import SignupLink from "../features/auth/SignupLink";
+import LoginCard from "@/features/auth/LoginCard";
 
 const Login = () => {
     return (
-        <>
-            <LoginTitle />
-            <LoginForm />
-            <SignupLink />
-        </>
+        <div className="flex justify-center items-center h-dvh">
+            <LoginCard />
+        </div>
     );
 };
 

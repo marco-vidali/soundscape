@@ -1,5 +1,7 @@
+import { Text } from "@/components/retroui/Text";
+
 const LoginTitle = () => {
-    return <h1>Log In to Your Account</h1>;
+    return <Text as="h1">Log In to Your Account</Text>;
 };
 
 export default LoginTitle;

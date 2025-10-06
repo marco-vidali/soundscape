@@ -1,5 +1,9 @@
 import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
 import { useLogIn } from "./useLogIn";
+import { Input } from "@/components/retroui/Input";
+import { Button } from "@/components/retroui/Button";
+import { Loader } from "@/components/retroui/Loader";
+import { Label } from "@/components/retroui/Label";
 
 const EMAIL_VALIDATION_REGEX = new RegExp(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/);
 
@@ -17,11 +21,12 @@ const LoginForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <div>
-                <label>Email:</label>
-                <input
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+            <div className="flex flex-col gap-1.5">
+                <Label>Email:</Label>
+                <Input
                     type="email"
+                    aria-invalid={!!errors.email}
                     {...register("email", {
                         required: "Email is required...",
                         pattern: {
@@ -31,26 +36,37 @@ const LoginForm = () => {
                     })}
                 />
 
-                {errors.email && <p>{errors.email.message as string}</p>}
+                {errors.email && (
+                    <p className="text-sm text-destructive">
+                        {errors.email.message as string}
+                    </p>
+                )}
             </div>
 
-            <div>
-                <label>Password:</label>
-                <input
+            <div className="flex flex-col gap-1.5">
+                <Label>Password:</Label>
+                <Input
                     type="password"
+                    aria-invalid={!!errors.email}
                     {...register("password", {
                         required: "Password is required...",
                     })}
                 />
 
-                {errors.password && <p>{errors.password.message as string}</p>}
+                {errors.password && (
+                    <p className="text-sm text-destructive">
+                        {errors.password.message as string}
+                    </p>
+                )}
             </div>
 
-            <button type="submit" disabled={isPending}>
-                Log In
-            </button>
-
-            {isPending && <p>Loading...</p>}
+            <Button
+                type="submit"
+                disabled={isPending}
+                className="flex flex-col h-10 justify-center"
+            >
+                {isPending ? <Loader /> : "Log In"}
+            </Button>
         </form>
     );
 };
