@@ -26,6 +26,7 @@ const LoginForm = () => {
                 <Label>Email:</Label>
                 <Input
                     type="email"
+                    placeholder="fantastic@email.com"
                     aria-invalid={!!errors.email}
                     {...register("email", {
                         required: "Email is required...",
@@ -47,7 +48,8 @@ const LoginForm = () => {
                 <Label>Password:</Label>
                 <Input
                     type="password"
-                    aria-invalid={!!errors.email}
+                    placeholder="••••••••"
+                    aria-invalid={!!errors.password}
                     {...register("password", {
                         required: "Password is required...",
                     })}
