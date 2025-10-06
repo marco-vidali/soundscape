@@ -5,7 +5,6 @@ import { Label } from "@/components/retroui/Label";
 import { Input } from "@/components/retroui/Input";
 import { Button } from "@/components/retroui/Button";
 import { Loader } from "@/components/retroui/Loader";
-import { toast } from "sonner";
 
 const ProfileCreationForm = () => {
     const {
@@ -13,6 +12,7 @@ const ProfileCreationForm = () => {
         register,
         formState: { errors },
         watch,
+        setError,
     } = useForm();
 
     const { createProfile, isPending } = useCreateProfile();
@@ -22,7 +22,10 @@ const ProfileCreationForm = () => {
 
     const onSubmit: SubmitHandler<FieldValues> = (formData) => {
         if (!isUsernameAvailable) {
-            toast.error("This username is already in use...");
+            setError("username", {
+                message: "This username is already in use...",
+            });
+
             return;
         }
 
