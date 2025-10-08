@@ -1,4 +1,5 @@
 import ProfileCreationCard from "@/features/profile/components/ProfileCreationCard";
+
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGetCurrentUser } from "@/features/auth/hooks/useGetCurrentUser";

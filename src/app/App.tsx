@@ -1,9 +1,10 @@
 import ProtectedRoute from "@/features/auth/components/ProtectedRoute";
+
+import { ThemeProvider } from "@/app/providers/ThemeProvider";
+import { Toaster } from "@/ui/atoms/Sonner";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { lazy } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { ThemeProvider } from "@/app/providers/ThemeProvider";
-import { Toaster } from "@/ui/atoms/Sonner";
 
 const Signup = lazy(() => import("../pages/Signup"));
 const Verification = lazy(() => import("../pages/Verification"));

@@ -1,5 +1,6 @@
 import ProfileCreationTitle from "./ProfileCreationTitle";
 import ProfileCreationForm from "./ProfileCreationForm";
+
 import { Card } from "@/ui/atoms/Card";
 
 const ProfileCreationCard = () => {
