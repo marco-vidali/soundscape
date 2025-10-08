@@ -4,9 +4,9 @@ import { useEffect, type PropsWithChildren } from "react";
 import { useIsLoggedIn } from "../hooks/useIsLoggedIn";
 import { useNavigate } from "react-router-dom";
 
-interface ProtectedRouteProps extends PropsWithChildren {}
+interface AuthProtectedRouteProps extends PropsWithChildren {}
 
-const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
+const AuthProtectedRoute = ({ children }: AuthProtectedRouteProps) => {
     const navigate = useNavigate();
 
     const { loggedIn, isLoading } = useIsLoggedIn();
@@ -23,4 +23,4 @@ const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
     return children;
 };
 
-export default ProtectedRoute;
+export default AuthProtectedRoute;

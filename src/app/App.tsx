@@ -1,4 +1,4 @@
-import ProtectedRoute from "@/features/auth/components/ProtectedRoute";
+import AuthProtectedRoute from "@/features/auth/components/AuthProtectedRoute";
 
 import { ThemeProvider } from "@/app/providers/ThemeProvider";
 import { Toaster } from "@/ui/atoms/Sonner";
@@ -27,9 +27,9 @@ function App() {
                             <Route
                                 path="verification"
                                 element={
-                                    <ProtectedRoute>
+                                    <AuthProtectedRoute>
                                         <Verification />
-                                    </ProtectedRoute>
+                                    </AuthProtectedRoute>
                                 }
                             />
                         </Route>
@@ -38,9 +38,9 @@ function App() {
                             <Route
                                 path="create"
                                 element={
-                                    <ProtectedRoute>
+                                    <AuthProtectedRoute>
                                         <ProfileCreation />
-                                    </ProtectedRoute>
+                                    </AuthProtectedRoute>
                                 }
                             />
                         </Route>
