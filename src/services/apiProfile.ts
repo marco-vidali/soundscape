@@ -6,9 +6,7 @@ export async function createProfile(formData: ProfileCreationFormData) {
         error: userError,
     } = await supabase.auth.getUser();
 
-    if (userError || !user) {
-        throw new Error("No authenticated user was found...");
-    }
+    if (userError || !user) throw new Error(userError?.message);
 
     const { error: profileError } = await supabase.from("profiles").insert({
         id: user.id,
@@ -16,9 +14,7 @@ export async function createProfile(formData: ProfileCreationFormData) {
         username: formData.username,
     });
 
-    if (profileError) {
-        throw new Error("An error occurred during profile creation...");
-    }
+    if (profileError) throw new Error(profileError.message);
 }
 
 export async function isUsernameAvailable(username: string) {
@@ -28,10 +24,7 @@ export async function isUsernameAvailable(username: string) {
         .eq("username", username)
         .limit(1);
 
-    if (error)
-        throw new Error(
-            "An error occurred while checking username availability..."
-        );
+    if (error) throw new Error(error.message);
 
     return !(data && data.length > 0);
 }
@@ -43,8 +36,7 @@ export async function getProfile(userId: string) {
         .eq("id", userId)
         .limit(1);
 
-    if (error)
-        throw new Error("An error occurred while getting user profile...");
+    if (error) throw new Error(error.message);
 
     return data[0];
 }

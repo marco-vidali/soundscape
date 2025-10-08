@@ -6,8 +6,7 @@ export async function signUp(formData: SignupFormData) {
         password: formData.password,
     });
 
-    if (error || !data.user)
-        throw new Error("An error occurred during signup...");
+    if (error || !data.user) throw new Error(error?.message);
 }
 
 export async function logIn(formData: LoginFormData) {
@@ -16,16 +15,13 @@ export async function logIn(formData: LoginFormData) {
         password: formData.password,
     });
 
-    if (error) throw new Error("An error occurred during login...");
+    if (error) throw new Error(error.message);
 }
 
 export async function isLoggedIn() {
     const { data, error } = await supabase.auth.getSession();
 
-    if (error) {
-        console.error("An error has occurred while checking session...");
-        return false;
-    }
+    if (error) throw new Error(error.message);
 
     return !!data;
 }
@@ -33,10 +29,7 @@ export async function isLoggedIn() {
 export async function getCurrentUser() {
     const { data, error } = await supabase.auth.getUser();
 
-    if (error) {
-        console.error("An error has occurred while getting user...");
-        return null;
-    }
+    if (error) throw new Error(error.message);
 
     return data;
 }

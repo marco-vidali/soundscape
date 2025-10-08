@@ -1,11 +1,11 @@
 import ProfileCreationCard from "@/features/profile/components/ProfileCreationCard";
 import FullScreenCenter from "@/ui/atoms/FullScreenCenter";
+import FullScreenLoader from "@/ui/molecules/FullScreenLoader";
 
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGetCurrentUser } from "@/features/auth/hooks/useGetCurrentUser";
 import { useGetProfile } from "@/features/profile/hooks/useGetProfile";
-import { Loader } from "@/ui/atoms/Loader";
 
 const ProfileCreation = () => {
     const navigate = useNavigate();
@@ -21,12 +21,7 @@ const ProfileCreation = () => {
         }
     }, [profile, isUserLoading, isProfileLoading, navigate]);
 
-    if (isUserLoading || isProfileLoading)
-        return (
-            <div className="h-dvh flex justify-center items-center">
-                <Loader />
-            </div>
-        );
+    if (isUserLoading || isProfileLoading) return <FullScreenLoader />;
 
     return (
         <FullScreenCenter>

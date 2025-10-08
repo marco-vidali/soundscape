@@ -1,7 +1,8 @@
+import FullScreenLoader from "@/ui/molecules/FullScreenLoader";
+
 import { useEffect, type PropsWithChildren } from "react";
 import { useIsLoggedIn } from "../hooks/useIsLoggedIn";
 import { useNavigate } from "react-router-dom";
-import { Loader } from "@/ui/atoms/Loader";
 
 interface ProtectedRouteProps extends PropsWithChildren {}
 
@@ -16,12 +17,7 @@ const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
         }
     }, [loggedIn, isLoading, navigate]);
 
-    if (isLoading)
-        return (
-            <div className="h-dvh flex items-center justify-center">
-                <Loader />
-            </div>
-        );
+    if (isLoading) return <FullScreenLoader />;
     if (!loggedIn) return null;
 
     return children;

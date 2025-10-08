@@ -3,7 +3,6 @@ import SubmitButton from "@/ui/molecules/SubmitButton";
 
 import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
 import { useSignUp } from "../hooks/useSignUp";
-import { useIsUsernameAvailable } from "../../profile/hooks/useIsUsernameAvailable";
 
 const EMAIL_VALIDATION_REGEX = new RegExp(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/);
 
@@ -15,17 +14,9 @@ const SignupForm = () => {
         watch,
     } = useForm();
 
-    const username = watch("username");
-    const { isUsernameAvailable } = useIsUsernameAvailable(username);
-
     const { signUp, isPending } = useSignUp();
 
     const onSubmit: SubmitHandler<FieldValues> = (formData) => {
-        if (!isUsernameAvailable) {
-            console.error("The username is already in use...");
-            return;
-        }
-
         signUp(formData as SignupFormData);
     };
 
