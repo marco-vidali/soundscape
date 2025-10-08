@@ -1,8 +1,8 @@
+import ProfileCreationCard from "@/features/profile/components/ProfileCreationCard";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGetCurrentUser } from "@/features/auth/hooks/useGetCurrentUser";
 import { useGetProfile } from "@/features/profile/hooks/useGetProfile";
-import ProfileCreationCard from "@/features/profile/components/ProfileCreationCard";
 import { Loader } from "@/ui/atoms/Loader";
 
 const ProfileCreation = () => {

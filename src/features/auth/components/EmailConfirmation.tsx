@@ -1,6 +1,6 @@
+import supabase from "@/services/supabase";
 import { useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
-import supabase from "@/services/supabase";
 
 export default function EmailConfirmation() {
     const [searchParams] = useSearchParams();

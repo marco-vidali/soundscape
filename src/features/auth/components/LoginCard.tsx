@@ -1,7 +1,7 @@
 import LoginForm from "./LoginForm";
 import SignupLink from "./SignupLink";
-import { Card } from "@/ui/atoms/Card";
 import LoginTitle from "./LoginTitle";
+import { Card } from "@/ui/atoms/Card";
 
 const LoginCard = () => {
     return (
