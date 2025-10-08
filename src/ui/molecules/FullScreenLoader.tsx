@@ -1,10 +1,12 @@
+import FullScreenCenter from "../atoms/FullScreenCenter";
+
 import { Loader } from "../atoms/Loader";
 
 const FullScreenLoader = () => {
     return (
-        <div className="h-dvh flex justify-center items-center">
+        <FullScreenCenter>
             <Loader />
-        </div>
+        </FullScreenCenter>
     );
 };
 

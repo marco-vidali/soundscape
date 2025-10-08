@@ -1,4 +1,5 @@
 import ProfileCreationCard from "@/features/profile/components/ProfileCreationCard";
+import FullScreenCenter from "@/ui/atoms/FullScreenCenter";
 
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -28,9 +29,9 @@ const ProfileCreation = () => {
         );
 
     return (
-        <div className="flex justify-center items-center h-dvh">
+        <FullScreenCenter>
             <ProfileCreationCard />
-        </div>
+        </FullScreenCenter>
     );
 };
 

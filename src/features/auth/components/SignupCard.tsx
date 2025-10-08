@@ -1,13 +1,13 @@
 import SignupForm from "./SignupForm";
 import LoginLink from "./LoginLink";
-import FullScreenCard from "@/ui/molecules/FullScreenCard";
+import ResponsiveCard from "@/ui/atoms/ResponsiveCard";
 import SignupTitle from "./SignupTitle";
 
 import { Card } from "@/ui/atoms/Card";
 
 const SignupCard = () => {
     return (
-        <FullScreenCard>
+        <ResponsiveCard>
             <Card.Header>
                 <Card.Title>
                     <SignupTitle />
@@ -19,7 +19,7 @@ const SignupCard = () => {
                     <LoginLink />
                 </div>
             </Card.Content>
-        </FullScreenCard>
+        </ResponsiveCard>
     );
 };
 

@@ -1,12 +1,12 @@
 import ProfileCreationTitle from "./ProfileCreationTitle";
 import ProfileCreationForm from "./ProfileCreationForm";
-import FullScreenCard from "@/ui/molecules/FullScreenCard";
+import ResponsiveCard from "@/ui/atoms/ResponsiveCard";
 
 import { Card } from "@/ui/atoms/Card";
 
 const ProfileCreationCard = () => {
     return (
-        <FullScreenCard>
+        <ResponsiveCard>
             <Card.Header>
                 <Card.Title>
                     <ProfileCreationTitle />
@@ -17,7 +17,7 @@ const ProfileCreationCard = () => {
                     <ProfileCreationForm />
                 </div>
             </Card.Content>
-        </FullScreenCard>
+        </ResponsiveCard>
     );
 };
 

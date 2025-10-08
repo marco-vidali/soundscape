@@ -1,10 +1,9 @@
 import InputWithLabel from "@/ui/molecules/InputWithLabel";
+import SubmitButton from "@/ui/molecules/SubmitButton";
 
 import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
 import { useSignUp } from "../hooks/useSignUp";
 import { useIsUsernameAvailable } from "../../profile/hooks/useIsUsernameAvailable";
-import { Button } from "@/ui/atoms/Button";
-import { Loader } from "@/ui/atoms/Loader";
 
 const EMAIL_VALIDATION_REGEX = new RegExp(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/);
 
@@ -16,10 +15,10 @@ const SignupForm = () => {
         watch,
     } = useForm();
 
-    const { signUp, isPending } = useSignUp();
-
     const username = watch("username");
     const { isUsernameAvailable } = useIsUsernameAvailable(username);
+
+    const { signUp, isPending } = useSignUp();
 
     const onSubmit: SubmitHandler<FieldValues> = (formData) => {
         if (!isUsernameAvailable) {
@@ -72,13 +71,7 @@ const SignupForm = () => {
                 })}
             />
 
-            <Button
-                type="submit"
-                disabled={isPending}
-                className="flex flex-col h-10 justify-center"
-            >
-                {isPending ? <Loader /> : "Sign Up"}
-            </Button>
+            <SubmitButton text="Sign Up" isPending={isPending} />
         </form>
     );
 };

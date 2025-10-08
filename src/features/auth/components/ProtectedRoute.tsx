@@ -6,8 +6,9 @@ import { Loader } from "@/ui/atoms/Loader";
 interface ProtectedRouteProps extends PropsWithChildren {}
 
 const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
-    const { loggedIn, isLoading } = useIsLoggedIn();
     const navigate = useNavigate();
+
+    const { loggedIn, isLoading } = useIsLoggedIn();
 
     useEffect(() => {
         if (!isLoading && !loggedIn) {

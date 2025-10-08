@@ -1,10 +1,11 @@
 import LoginCard from "@/features/auth/components/LoginCard";
+import FullScreenCenter from "@/ui/atoms/FullScreenCenter";
 
 const Login = () => {
     return (
-        <div className="flex justify-center items-center h-dvh">
+        <FullScreenCenter>
             <LoginCard />
-        </div>
+        </FullScreenCenter>
     );
 };
 

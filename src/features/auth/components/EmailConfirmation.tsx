@@ -5,8 +5,9 @@ import { useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 
 export default function EmailConfirmation() {
-    const [searchParams] = useSearchParams();
     const navigate = useNavigate();
+
+    const [searchParams] = useSearchParams();
 
     useEffect(() => {
         const confirmEmail = async () => {

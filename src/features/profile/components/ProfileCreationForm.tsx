@@ -1,10 +1,9 @@
 import InputWithLabel from "@/ui/molecules/InputWithLabel";
+import SubmitButton from "@/ui/molecules/SubmitButton";
 
 import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
 import { useCreateProfile } from "../hooks/useCreateProfile";
 import { useIsUsernameAvailable } from "../hooks/useIsUsernameAvailable";
-import { Button } from "@/ui/atoms/Button";
-import { Loader } from "@/ui/atoms/Loader";
 
 const ProfileCreationForm = () => {
     const {
@@ -15,10 +14,10 @@ const ProfileCreationForm = () => {
         setError,
     } = useForm();
 
-    const { createProfile, isPending } = useCreateProfile();
-
     const username = watch("username");
     const { isUsernameAvailable } = useIsUsernameAvailable(username);
+
+    const { createProfile, isPending } = useCreateProfile();
 
     const onSubmit: SubmitHandler<FieldValues> = (formData) => {
         if (!isUsernameAvailable) {
@@ -56,13 +55,7 @@ const ProfileCreationForm = () => {
                 })}
             />
 
-            <Button
-                type="submit"
-                disabled={isPending}
-                className="flex flex-col h-10 justify-center"
-            >
-                {isPending ? <Loader /> : "Create"}
-            </Button>
+            <SubmitButton text="Create Profile" isPending={isPending} />
         </form>
     );
 };

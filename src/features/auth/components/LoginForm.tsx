@@ -1,9 +1,8 @@
+import SubmitButton from "@/ui/molecules/SubmitButton";
 import InputWithLabel from "@/ui/molecules/InputWithLabel";
 
 import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
 import { useLogIn } from "../hooks/useLogIn";
-import { Button } from "@/ui/atoms/Button";
-import { Loader } from "@/ui/atoms/Loader";
 
 const EMAIL_VALIDATION_REGEX = new RegExp(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/);
 
@@ -46,13 +45,7 @@ const LoginForm = () => {
                 })}
             />
 
-            <Button
-                type="submit"
-                disabled={isPending}
-                className="flex flex-col h-10 justify-center"
-            >
-                {isPending ? <Loader /> : "Log In"}
-            </Button>
+            <SubmitButton text="Log In" isPending={isPending} />
         </form>
     );
 };
