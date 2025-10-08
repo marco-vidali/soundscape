@@ -6,7 +6,10 @@ export function useSignUp() {
     const { mutate: signUp, isPending } = useMutation({
         mutationFn: (formData: SignupFormData) => apiSignUp(formData),
         onSuccess: () => toast.success("A verification email was sent to you!"),
-        onError: (error) => console.error(error),
+        onError: (error) => {
+            toast.error("An error occurred while signing you up...");
+            console.error(error);
+        },
     });
 
     return { signUp, isPending };

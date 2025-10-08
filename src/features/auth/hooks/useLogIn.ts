@@ -9,7 +9,10 @@ export function useLogIn() {
     const { mutate: logIn, isPending } = useMutation({
         mutationFn: (formData: LoginFormData) => apiLogIn(formData),
         onSuccess: () => navigate("/"),
-        onError: () => toast.error("Your email or password is incorrect..."),
+        onError: (error) => {
+            toast.error("Your email or password is incorrect...");
+            console.error(error);
+        },
     });
 
     return { logIn, isPending };
