@@ -3,8 +3,6 @@ import InputWithLabel from "@/ui/molecules/InputWithLabel";
 import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
 import { useCreateProfile } from "../hooks/useCreateProfile";
 import { useIsUsernameAvailable } from "../hooks/useIsUsernameAvailable";
-import { Label } from "@/ui/atoms/Label";
-import { Input } from "@/ui/atoms/Input";
 import { Button } from "@/ui/atoms/Button";
 import { Loader } from "@/ui/atoms/Loader";
 
