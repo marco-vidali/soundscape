@@ -1,6 +1,6 @@
 import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
 import { useSignUp } from "../hooks/useSignUp";
-import { useIsUsernameAvailable } from "@/features/profile/hooks/useIsUsernameAvailable";
+import { useIsUsernameAvailable } from "../../profile/hooks/useIsUsernameAvailable";
 import { Input } from "@/ui/atoms/Input";
 import { Label } from "@radix-ui/react-label";
 import { Button } from "@/ui/atoms/Button";
