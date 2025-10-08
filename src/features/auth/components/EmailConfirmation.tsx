@@ -21,17 +21,13 @@ export default function EmailConfirmation() {
                     });
 
                     if (error) {
-                        console.error(
-                            "An error occurred while confirming your email..."
-                        );
+                        console.error(error.message);
                         return;
                     }
 
                     navigate("/profile/create");
                 } catch (err) {
-                    console.error(
-                        "An unexpected error occurred while confirming your email..."
-                    );
+                    console.error(err);
                 }
             }
         };
