@@ -1,3 +1,5 @@
+import InputWithLabel from "@/ui/molecules/InputWithLabel";
+
 import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
 import { useSignUp } from "../hooks/useSignUp";
 import { useIsUsernameAvailable } from "../../profile/hooks/useIsUsernameAvailable";
@@ -32,71 +34,45 @@ const SignupForm = () => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
-            <div className="flex flex-col gap-1.5">
-                <Label>Email:</Label>
-                <Input
-                    type="email"
-                    placeholder="fantastic@email.com"
-                    aria-invalid={!!errors.email}
-                    {...register("email", {
-                        required: "Email is required",
-                        pattern: {
-                            value: EMAIL_VALIDATION_REGEX,
-                            message: "Please enter a valid email address",
-                        },
-                    })}
-                />
+            <InputWithLabel
+                label="Email:"
+                type="email"
+                placeholder="fantastic@email.com"
+                errors={errors.email}
+                {...register("email", {
+                    required: "Email is required",
+                    pattern: {
+                        value: EMAIL_VALIDATION_REGEX,
+                        message: "Please enter a valid email address",
+                    },
+                })}
+            />
 
-                {errors.email && (
-                    <p className="text-sm text-destructive">
-                        {errors.email.message as string}
-                    </p>
-                )}
-            </div>
+            <InputWithLabel
+                label="Password:"
+                type="password"
+                placeholder="••••••••"
+                errors={errors.password}
+                {...register("password", {
+                    required: "Password is required",
+                    minLength: {
+                        value: 8,
+                        message: "Password must be at least 8 characters long",
+                    },
+                })}
+            />
 
-            <div className="flex flex-col gap-1.5">
-                <label>Password:</label>
-                <Input
-                    type="password"
-                    placeholder="••••••••"
-                    aria-invalid={!!errors.password}
-                    {...register("password", {
-                        required: "Password is required",
-                        minLength: {
-                            value: 8,
-                            message:
-                                "Password must be at least 8 characters long",
-                        },
-                    })}
-                />
-
-                {errors.password && (
-                    <p className="text-sm text-destructive">
-                        {errors.password.message as string}
-                    </p>
-                )}
-            </div>
-
-            <div className="flex flex-col gap-1.5">
-                <label>Confirm Password:</label>
-                <Input
-                    type="password"
-                    placeholder="••••••••"
-                    aria-invalid={!!errors.confirmPassword}
-                    {...register("confirmPassword", {
-                        required: "Password confirmation is required",
-                        validate: (value) =>
-                            value === watch("password") ||
-                            "Passwords do not match",
-                    })}
-                />
-
-                {errors.confirmPassword && (
-                    <p className="text-sm text-destructive">
-                        {errors.confirmPassword.message as string}
-                    </p>
-                )}
-            </div>
+            <InputWithLabel
+                label="Confirm Password:"
+                type="password"
+                placeholder="••••••••"
+                errors={errors.confirmPassword}
+                {...register("confirmPassword", {
+                    required: "Password confirmation is required",
+                    validate: (value) =>
+                        value === watch("password") || "Passwords do not match",
+                })}
+            />
 
             <Button
                 type="submit"

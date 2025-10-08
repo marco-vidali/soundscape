@@ -1,9 +1,9 @@
+import InputWithLabel from "@/ui/molecules/InputWithLabel";
+
 import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
 import { useLogIn } from "../hooks/useLogIn";
-import { Input } from "@/ui/atoms/Input";
 import { Button } from "@/ui/atoms/Button";
 import { Loader } from "@/ui/atoms/Loader";
-import { Label } from "@/ui/atoms/Label";
 
 const EMAIL_VALIDATION_REGEX = new RegExp(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/);
 
@@ -22,45 +22,29 @@ const LoginForm = () => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
-            <div className="flex flex-col gap-1.5">
-                <Label>Email:</Label>
-                <Input
-                    type="email"
-                    placeholder="fantastic@email.com"
-                    aria-invalid={!!errors.email}
-                    {...register("email", {
-                        required: "Email is required...",
-                        pattern: {
-                            value: EMAIL_VALIDATION_REGEX,
-                            message: "Please enter a valid email address...",
-                        },
-                    })}
-                />
+            <InputWithLabel
+                label="Email:"
+                type="email"
+                placeholder="fantastic@email.com"
+                errors={errors.email}
+                {...register("email", {
+                    required: "Email is required...",
+                    pattern: {
+                        value: EMAIL_VALIDATION_REGEX,
+                        message: "Please enter a valid email address...",
+                    },
+                })}
+            />
 
-                {errors.email && (
-                    <p className="text-sm text-destructive">
-                        {errors.email.message as string}
-                    </p>
-                )}
-            </div>
-
-            <div className="flex flex-col gap-1.5">
-                <Label>Password:</Label>
-                <Input
-                    type="password"
-                    placeholder="••••••••"
-                    aria-invalid={!!errors.password}
-                    {...register("password", {
-                        required: "Password is required...",
-                    })}
-                />
-
-                {errors.password && (
-                    <p className="text-sm text-destructive">
-                        {errors.password.message as string}
-                    </p>
-                )}
-            </div>
+            <InputWithLabel
+                label="Password:"
+                type="password"
+                placeholder="••••••••"
+                errors={errors.password}
+                {...register("password", {
+                    required: "Password is required...",
+                })}
+            />
 
             <Button
                 type="submit"

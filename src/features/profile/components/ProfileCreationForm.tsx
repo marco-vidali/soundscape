@@ -1,3 +1,5 @@
+import InputWithLabel from "@/ui/molecules/InputWithLabel";
+
 import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
 import { useCreateProfile } from "../hooks/useCreateProfile";
 import { useIsUsernameAvailable } from "../hooks/useIsUsernameAvailable";
@@ -34,44 +36,27 @@ const ProfileCreationForm = () => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
-            <div className="flex flex-col gap-1.5">
-                <Label>Display Name:</Label>
-                <Input
-                    placeholder="Jonny Greenwood"
-                    aria-invalid={!!errors.displayName}
-                    {...register("displayName", {
-                        required: "Display Name is required",
-                    })}
-                />
+            <InputWithLabel
+                label="Display Name:"
+                placeholder="Ray Toro"
+                errors={errors.displayName}
+                {...register("displayName", {
+                    required: "Display Name is required",
+                })}
+            />
 
-                {errors.displayName && (
-                    <p className="text-sm text-destructive">
-                        {errors.displayName.message as string}
-                    </p>
-                )}
-            </div>
-
-            <div className="flex flex-col gap-1.5">
-                <Label>Username:</Label>
-                <Input
-                    placeholder="jonnygreenwood"
-                    aria-invalid={!!errors.username}
-                    {...register("username", {
-                        required: "Username is required",
-                        minLength: {
-                            value: 3,
-                            message:
-                                "Username must be at least 3 characters long",
-                        },
-                    })}
-                />
-
-                {errors.username && (
-                    <p className="text-sm text-destructive">
-                        {errors.username.message as string}
-                    </p>
-                )}
-            </div>
+            <InputWithLabel
+                label="Username:"
+                placeholder="raytoro"
+                errors={errors.username}
+                {...register("username", {
+                    required: "Username is required",
+                    minLength: {
+                        value: 3,
+                        message: "Username must be at least 3 characters long",
+                    },
+                })}
+            />
 
             <Button
                 type="submit"
