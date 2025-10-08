@@ -1,4 +1,5 @@
 import supabase from "@/services/supabase";
+import FullScreenLoader from "@/ui/molecules/FullScreenLoader";
 
 import { useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
@@ -37,5 +38,5 @@ export default function EmailConfirmation() {
         confirmEmail();
     }, [searchParams, navigate]);
 
-    return <p>Confirming your email...</p>;
+    return <FullScreenLoader />;
 }
