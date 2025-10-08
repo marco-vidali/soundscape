@@ -1,12 +1,13 @@
 import LoginForm from "./LoginForm";
 import SignupLink from "./SignupLink";
+import FullScreenCard from "@/ui/molecules/FullScreenCard";
 import LoginTitle from "./LoginTitle";
 
 import { Card } from "@/ui/atoms/Card";
 
 const LoginCard = () => {
     return (
-        <Card className="p-8 bg-transparent border-0 shadow-none w-full md:bg-card md:border-2 md:shadow-md md:w-auto">
+        <FullScreenCard>
             <Card.Header>
                 <Card.Title>
                     <LoginTitle />
@@ -18,7 +19,7 @@ const LoginCard = () => {
                     <SignupLink />
                 </div>
             </Card.Content>
-        </Card>
+        </FullScreenCard>
     );
 };
 
