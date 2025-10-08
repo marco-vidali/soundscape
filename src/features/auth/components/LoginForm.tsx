@@ -1,9 +1,9 @@
 import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
-import { useLogIn } from "./useLogIn";
-import { Input } from "@/components/retroui/Input";
-import { Button } from "@/components/retroui/Button";
-import { Loader } from "@/components/retroui/Loader";
-import { Label } from "@/components/retroui/Label";
+import { useLogIn } from "../hooks/useLogIn";
+import { Input } from "@/ui/atoms/Input";
+import { Button } from "@/ui/atoms/Button";
+import { Loader } from "@/ui/atoms/Loader";
+import { Label } from "@/ui/atoms/Label";
 
 const EMAIL_VALIDATION_REGEX = new RegExp(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/);
 

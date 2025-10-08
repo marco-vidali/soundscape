@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { isLoggedIn as apiIsLoggedIn } from "../../services/apiAuth";
+import { isLoggedIn as apiIsLoggedIn } from "@/services/apiAuth";
 
 export function useIsLoggedIn() {
     const {

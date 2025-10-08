@@ -1,24 +1,24 @@
-import SignupForm from "./SignupForm";
-import LoginLink from "./LoginLink";
-import { Card } from "@/components/retroui/Card";
-import SignupTitle from "./SignupTitle";
+import LoginForm from "./LoginForm";
+import SignupLink from "./SignupLink";
+import { Card } from "@/ui/atoms/Card";
+import LoginTitle from "./LoginTitle";
 
-const SignupCard = () => {
+const LoginCard = () => {
     return (
         <Card className="p-8 bg-transparent border-0 shadow-none w-full md:bg-card md:border-2 md:shadow-md md:w-auto">
             <Card.Header>
                 <Card.Title>
-                    <SignupTitle />
+                    <LoginTitle />
                 </Card.Title>
             </Card.Header>
             <Card.Content>
                 <div className="flex flex-col gap-8">
-                    <SignupForm />
-                    <LoginLink />
+                    <LoginForm />
+                    <SignupLink />
                 </div>
             </Card.Content>
         </Card>
     );
 };
 
-export default SignupCard;
+export default LoginCard;

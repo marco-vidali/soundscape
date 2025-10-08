@@ -1,7 +1,7 @@
 import { useEffect, type PropsWithChildren } from "react";
-import { useIsLoggedIn } from "./useIsLoggedIn";
+import { useIsLoggedIn } from "../hooks/useIsLoggedIn";
 import { useNavigate } from "react-router-dom";
-import { Loader } from "@/components/retroui/Loader";
+import { Loader } from "@/ui/atoms/Loader";
 
 interface ProtectedRouteProps extends PropsWithChildren {}
 

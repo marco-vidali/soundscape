@@ -1,4 +1,4 @@
-import LoginCard from "@/features/auth/LoginCard";
+import LoginCard from "@/features/auth/components/LoginCard";
 
 const Login = () => {
     return (

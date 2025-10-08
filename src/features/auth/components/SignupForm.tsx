@@ -1,10 +1,10 @@
 import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
-import { useSignUp } from "./useSignUp";
-import { useIsUsernameAvailable } from "../profile/useIsUsernameAvailable";
-import { Input } from "@/components/retroui/Input";
+import { useSignUp } from "../hooks/useSignUp";
+import { useIsUsernameAvailable } from "@/features/profile/hooks/useIsUsernameAvailable";
+import { Input } from "@/ui/atoms/Input";
 import { Label } from "@radix-ui/react-label";
-import { Button } from "@/components/retroui/Button";
-import { Loader } from "@/components/retroui/Loader";
+import { Button } from "@/ui/atoms/Button";
+import { Loader } from "@/ui/atoms/Loader";
 
 const EMAIL_VALIDATION_REGEX = new RegExp(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/);
 

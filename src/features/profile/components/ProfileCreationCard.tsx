@@ -1,4 +1,4 @@
-import { Card } from "@/components/retroui/Card";
+import { Card } from "@/ui/atoms/Card";
 import ProfileCreationTitle from "./ProfileCreationTitle";
 import ProfileCreationForm from "./ProfileCreationForm";
 

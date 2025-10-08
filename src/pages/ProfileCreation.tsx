@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useGetCurrentUser } from "../features/auth/useGetCurrentUser";
-import { useGetProfile } from "../features/profile/useGetProfile";
-import ProfileCreationCard from "@/features/profile/ProfileCreationCard";
-import { Loader } from "@/components/retroui/Loader";
+import { useGetCurrentUser } from "@/features/auth/hooks/useGetCurrentUser";
+import { useGetProfile } from "@/features/profile/hooks/useGetProfile";
+import ProfileCreationCard from "@/features/profile/components/ProfileCreationCard";
+import { Loader } from "@/ui/atoms/Loader";
 
 const ProfileCreation = () => {
     const navigate = useNavigate();

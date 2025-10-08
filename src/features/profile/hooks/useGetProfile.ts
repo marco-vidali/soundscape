@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getProfile as apiGetProfile } from "../../services/apiProfile";
+import { getProfile as apiGetProfile } from "@/services/apiProfile";
 
 export function useGetProfile(userId: string) {
     const {

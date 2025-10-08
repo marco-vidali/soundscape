@@ -1,4 +1,4 @@
-import EmailConfirmation from "../features/auth/EmailConfirmation";
+import EmailConfirmation from "@/features/auth/components/EmailConfirmation";
 
 const Verification = () => {
     return <EmailConfirmation />;

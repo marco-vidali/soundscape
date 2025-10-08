@@ -1,4 +1,4 @@
-import { Text } from "@/components/retroui/Text";
+import { Text } from "@/ui/atoms/Text";
 
 const ProfileCreationTitle = () => {
     return <Text as="h1">Create Your Profile</Text>;

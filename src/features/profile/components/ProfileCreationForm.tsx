@@ -1,10 +1,10 @@
 import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
-import { useCreateProfile } from "./useCreateProfile";
-import { useIsUsernameAvailable } from "./useIsUsernameAvailable";
-import { Label } from "@/components/retroui/Label";
-import { Input } from "@/components/retroui/Input";
-import { Button } from "@/components/retroui/Button";
-import { Loader } from "@/components/retroui/Loader";
+import { useCreateProfile } from "../hooks/useCreateProfile";
+import { useIsUsernameAvailable } from "../hooks/useIsUsernameAvailable";
+import { Label } from "@/ui/atoms/Label";
+import { Input } from "@/ui/atoms/Input";
+import { Button } from "@/ui/atoms/Button";
+import { Loader } from "@/ui/atoms/Loader";
 
 const ProfileCreationForm = () => {
     const {
