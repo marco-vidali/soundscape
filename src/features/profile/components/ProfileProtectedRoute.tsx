@@ -5,9 +5,14 @@ import { useNavigate } from "react-router-dom";
 import { useGetCurrentUser } from "@/features/auth/hooks/useGetCurrentUser";
 import { useGetProfile } from "@/features/profile/hooks/useGetProfile";
 
-interface ProfileProtectedRouteProps extends PropsWithChildren {}
+interface ProfileProtectedRouteProps extends PropsWithChildren {
+    inverted?: boolean;
+}
 
-const ProfileProtectedRoute = ({ children }: ProfileProtectedRouteProps) => {
+const ProfileProtectedRoute = ({
+    children,
+    inverted = false,
+}: ProfileProtectedRouteProps) => {
     const navigate = useNavigate();
 
     const { currentUser, isLoading: isUserLoading } = useGetCurrentUser();
@@ -16,13 +21,16 @@ const ProfileProtectedRoute = ({ children }: ProfileProtectedRouteProps) => {
     const { profile, isLoading: isProfileLoading } = useGetProfile(userId);
 
     useEffect(() => {
-        if (!isUserLoading && !isProfileLoading && !!!profile) {
-            navigate("/profile/create");
-        }
+        if (isUserLoading || isProfileLoading) return;
+
+        if (!inverted && !!!profile) navigate("/profile/create");
+        if (inverted && !!profile) navigate("/");
     }, [profile, isUserLoading, isProfileLoading, navigate]);
 
     if (isUserLoading || isProfileLoading) return <FullScreenLoader />;
-    if (!profile) return null;
+
+    if (!inverted && !profile) return null;
+    if (inverted && profile) return null;
 
     return children;
 };

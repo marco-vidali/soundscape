@@ -52,7 +52,9 @@ function App() {
                                 path="create"
                                 element={
                                     <AuthProtectedRoute>
-                                        <ProfileCreation />
+                                        <ProfileProtectedRoute inverted>
+                                            <ProfileCreation />
+                                        </ProfileProtectedRoute>
                                     </AuthProtectedRoute>
                                 }
                             />
