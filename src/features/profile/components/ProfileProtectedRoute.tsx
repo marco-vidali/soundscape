@@ -17,7 +17,7 @@ const ProfileProtectedRoute = ({
 
     const { currentUser, isLoading: isUserLoading } = useGetCurrentUser();
 
-    const userId = currentUser?.user.id ?? "";
+    const userId = currentUser?.id ?? "";
     const { profile, isLoading: isProfileLoading } = useGetProfile(userId);
 
     useEffect(() => {

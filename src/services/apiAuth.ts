@@ -19,17 +19,23 @@ export async function logIn(formData: LoginFormData) {
 }
 
 export async function isLoggedIn() {
-    const { data, error } = await supabase.auth.getSession();
+    const {
+        data: { session },
+        error,
+    } = await supabase.auth.getSession();
 
     if (error) throw new Error(error.message);
 
-    return !!data;
+    return !!session;
 }
 
 export async function getCurrentUser() {
-    const { data, error } = await supabase.auth.getUser();
+    const {
+        data: { user },
+        error,
+    } = await supabase.auth.getUser();
 
     if (error) throw new Error(error.message);
 
-    return data;
+    return user;
 }
