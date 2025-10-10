@@ -1,4 +1,5 @@
 import AuthProtectedRoute from "@/features/auth/components/AuthProtectedRoute";
+import ProfileProtectedRoute from "@/features/profile/components/ProfileProtectedRoute";
 
 import { ThemeProvider } from "@/app/providers/ThemeProvider";
 import { Toaster } from "@/ui/atoms/Sonner";
@@ -10,6 +11,7 @@ const Signup = lazy(() => import("../pages/Signup"));
 const Verification = lazy(() => import("../pages/Verification"));
 const ProfileCreation = lazy(() => import("../pages/ProfileCreation"));
 const Login = lazy(() => import("../pages/Login"));
+const Home = lazy(() => import("@/pages/Home"));
 
 const queryClient = new QueryClient();
 
@@ -21,6 +23,17 @@ function App() {
             <QueryClientProvider client={queryClient}>
                 <BrowserRouter>
                     <Routes>
+                        <Route
+                            index
+                            element={
+                                <AuthProtectedRoute>
+                                    <ProfileProtectedRoute>
+                                        <Home />
+                                    </ProfileProtectedRoute>
+                                </AuthProtectedRoute>
+                            }
+                        />
+
                         <Route path="auth">
                             <Route path="signup" element={<Signup />} />
                             <Route path="login" element={<Login />} />
