@@ -39,11 +39,7 @@ function App() {
                             <Route path="login" element={<Login />} />
                             <Route
                                 path="verification"
-                                element={
-                                    <AuthProtectedRoute>
-                                        <Verification />
-                                    </AuthProtectedRoute>
-                                }
+                                element={<Verification />}
                             />
                         </Route>
 
