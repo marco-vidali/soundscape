@@ -22,6 +22,7 @@ const ProfileCreation = () => {
     }, [profile, isUserLoading, isProfileLoading, navigate]);
 
     if (isUserLoading || isProfileLoading) return <FullScreenLoader />;
+    if (profile) return null;
 
     return (
         <FullScreenCenter>

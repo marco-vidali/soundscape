@@ -22,6 +22,7 @@ const ProfileProtectedRoute = ({ children }: ProfileProtectedRouteProps) => {
     }, [profile, isUserLoading, isProfileLoading, navigate]);
 
     if (isUserLoading || isProfileLoading) return <FullScreenLoader />;
+    if (!profile) return null;
 
     return children;
 };
