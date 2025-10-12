@@ -1,4 +1,4 @@
-import { Label } from "@radix-ui/react-label";
+import { Label } from "../atoms/Label";
 import { Input } from "../atoms/Input";
 import type { FieldErrors } from "react-hook-form";
 
