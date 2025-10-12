@@ -16,8 +16,11 @@ const SelectWithLabel = ({
     return (
         <div className="flex flex-col gap-1.5">
             <Label>{label}</Label>
+
             <Select {...otherProps}>
-                <Select.Trigger>{trigger}</Select.Trigger>
+                <Select.Trigger>
+                    <Select.Value placeholder={trigger} />
+                </Select.Trigger>
                 <Select.Content>
                     <Select.Group>{children}</Select.Group>
                 </Select.Content>

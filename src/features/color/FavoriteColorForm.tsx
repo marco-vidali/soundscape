@@ -1,8 +1,8 @@
-import { Select } from "@/ui/atoms/Select";
 import SelectWithLabel from "@/ui/molecules/SelectWithLabel";
 import SubmitButton from "@/ui/molecules/SubmitButton";
 
 import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
+import { Select } from "@/ui/atoms/Select";
 
 const FavoriteColorForm = () => {
     const { handleSubmit, register } = useForm();

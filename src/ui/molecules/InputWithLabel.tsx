@@ -19,6 +19,7 @@ const InputWithLabel = ({
     return (
         <div className="flex flex-col gap-1.5">
             <Label>{label}</Label>
+
             <Input
                 type={type}
                 placeholder={placeholder}
