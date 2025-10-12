@@ -3,7 +3,7 @@ import SubmitButton from "@/ui/molecules/SubmitButton";
 
 import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
 
-const FavoriteColorsForm = () => {
+const FavoriteColorForm = () => {
     const {
         handleSubmit,
         register,
@@ -31,4 +31,4 @@ const FavoriteColorsForm = () => {
     );
 };
 
-export default FavoriteColorsForm;
+export default FavoriteColorForm;

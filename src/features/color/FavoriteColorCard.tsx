@@ -1,22 +1,22 @@
-import FavoriteColorsForm from "./FavoriteColorsForm";
+import FavoriteColorForm from "./FavoriteColorForm";
 import ResponsiveCard from "@/ui/atoms/ResponsiveCard";
-import FavoriteColorsTitle from "./FavoriteColorsTitle";
+import FavoriteColorTitle from "./FavoriteColorTitle";
 
 import { Card } from "@/ui/atoms/Card";
 
-const FavoriteColorsCard = () => {
+const FavoriteColorCard = () => {
     return (
         <ResponsiveCard>
             <Card.Header>
                 <Card.Title>
-                    <FavoriteColorsTitle />
+                    <FavoriteColorTitle />
                 </Card.Title>
             </Card.Header>
             <Card.Content>
-                <FavoriteColorsForm />
+                <FavoriteColorForm />
             </Card.Content>
         </ResponsiveCard>
     );
 };
 
-export default FavoriteColorsCard;
+export default FavoriteColorCard;
