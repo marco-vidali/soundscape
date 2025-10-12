@@ -12,6 +12,7 @@ const Verification = lazy(() => import("@/pages/Verification"));
 const ProfileCreation = lazy(() => import("@/pages/ProfileCreation"));
 const Login = lazy(() => import("@/pages/Login"));
 const Home = lazy(() => import("@/pages/Home"));
+const FavoriteColors = lazy(() => import("@/pages/FavoriteColors"));
 
 const queryClient = new QueryClient();
 
@@ -53,6 +54,13 @@ function App() {
                                         </ProfileProtectedRoute>
                                     </AuthProtectedRoute>
                                 }
+                            />
+                        </Route>
+
+                        <Route path="colors">
+                            <Route
+                                path="favorite"
+                                element={<FavoriteColors />}
                             />
                         </Route>
                     </Routes>
