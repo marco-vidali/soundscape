@@ -1,5 +1,12 @@
+import FavoriteColorsCard from "@/features/colors/FavoriteColorsCard";
+import FullScreenCenter from "@/ui/atoms/FullScreenCenter";
+
 const FavoriteColors = () => {
-    return <h1>Favorite Colors</h1>;
+    return (
+        <FullScreenCenter>
+            <FavoriteColorsCard />
+        </FullScreenCenter>
+    );
 };
 
 export default FavoriteColors;
