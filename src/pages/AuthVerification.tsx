@@ -1,7 +1,7 @@
 import EmailConfirmation from "@/features/auth/components/EmailConfirmation";
 
-const Verification = () => {
+const AuthVerification = () => {
     return <EmailConfirmation />;
 };
 
-export default Verification;
+export default AuthVerification;

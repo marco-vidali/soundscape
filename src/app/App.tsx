@@ -8,7 +8,7 @@ import { lazy } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const Signup = lazy(() => import("@/pages/Signup"));
-const Verification = lazy(() => import("@/pages/Verification"));
+const AuthVerification = lazy(() => import("@/pages/AuthVerification"));
 const ProfileCreation = lazy(() => import("@/pages/ProfileCreation"));
 const Login = lazy(() => import("@/pages/Login"));
 const Home = lazy(() => import("@/pages/Home"));
@@ -40,7 +40,7 @@ function App() {
                             <Route path="login" element={<Login />} />
                             <Route
                                 path="verification"
-                                element={<Verification />}
+                                element={<AuthVerification />}
                             />
                         </Route>
 
